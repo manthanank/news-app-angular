@@ -1,11 +1,11 @@
 <ngx-loading-bar [includeSpinner]="false"></ngx-loading-bar>
-<div class="container-fluid">
-    <div class="row">
-        <div *ngFor="let data of topHeadlines" class="col-lg-3">
+<div class="container-fluid mt-4">
+    <div class="row p-2">
+        <div *ngFor="let data of topHeadlines" class="col-lg-3 p-2">
             <img src="{{data.urlToImage}}" alt="">
             <h5>{{data.title}}</h5>
             <p>{{data.description}}</p>
-            <a target="_blank" href="{{data.url}}">Read More...</a>
+            <a href="{{data.url}}" target="_blank"  class="btn btn-primary">Read More...</a>
         </div>
     </div>
 </div>

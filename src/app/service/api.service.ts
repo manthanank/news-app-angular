@@ -1,19 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
+const apiKey = environment.apiKey;
+
+// const topHeadLinesURL = environment.topHeadLinesURL;
+// const topBusinessHeadLinesURL = environment.topBusinessHeadLinesURL;
+// const topGeneralHeadLinesURL = environment.topGeneralHeadLinesURL;
+// const topSportsHeadLinesURL = environment.topSportsHeadLinesURL;
+// const topTechnologyHeadLinesURL = environment.topTechnologyHeadLinesURL;
+// const topHealthHeadLinesURL = environment.topHealthHeadLinesURL;
+// const topscienceHeadLinesURL = environment.topscienceHeadLinesURL;
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  topHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
-  topBusinessHeadLinesURL = 'https://newsapi.org/v2/top-headlines/sources?business?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
-  topGeneralHeadLinesURL = 'https://newsapi.org/v2/top-headlines/sources?general?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
-  topSportsHeadLinesURL = 'https://newsapi.org/v2/top-headlines/sources?sports?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
-  topTechnologyHeadLinesURL = 'https://newsapi.org/v2/top-headlines/sources?technology?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
-  topHealthHeadLinesURL = 'https://newsapi.org/v2/top-headlines/sources?health?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
-  topscienceHeadLinesURL = 'https://newsapi.org/v2/top-headlines/sources?science?country=in&category=business&apiKey=1656c9f6290c4a3eb9d65088a0a8ae2c';
+  topHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=' + apiKey;
+  topBusinessHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=' + apiKey;
+  topGeneralHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=' + apiKey;
+  topSportsHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=' + apiKey;
+  topTechnologyHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=' + apiKey;
+  topHealthHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=' + apiKey;
+  topscienceHeadLinesURL = 'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=' + apiKey;
   
   constructor(private http: HttpClient) { }
 
@@ -41,7 +51,7 @@ export class ApiService {
     return this.http.get(this.topHealthHeadLinesURL);
   }
 
-  getTopscienceHeadlines(): Observable<any>{
+  getTopScienceHeadlines(): Observable<any>{
     return this.http.get(this.topscienceHeadLinesURL);
   }
 }

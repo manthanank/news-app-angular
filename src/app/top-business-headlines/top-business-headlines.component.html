@@ -1,1 +1,11 @@
-<p>top-business-headlines works!</p>
+<ngx-loading-bar [includeSpinner]="false"></ngx-loading-bar>
+<div class="container-fluid mt-4">
+    <div class="row p-2">
+        <div *ngFor="let data of topBusinessHeadlines" class="col-lg-3 p-2">
+            <img src="{{data.urlToImage}}" alt="">
+            <h5>{{data.title}}</h5>
+            <p>{{data.description}}</p>
+            <a href="{{data.url}}" target="_blank"  class="btn btn-primary">Read More...</a>
+        </div>
+    </div>
+</div>
