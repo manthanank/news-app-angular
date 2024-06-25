@@ -1,27 +1,128 @@
-# NewsAppFrontend
+# Angular News App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+This is a simple news application built with Angular, using the NewsAPI to fetch the latest news headlines. The application allows users to browse top headlines, filter news by category, search for news articles, and paginate through results.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Display top headlines from NewsAPI.
+- Filter news articles by category.
+- Search for specific news articles.
+- Pagination to navigate through different pages of news articles.
+- Responsive and attractive UI using Tailwind CSS.
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js and npm installed on your machine.
+- Angular CLI installed globally via npm.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Clone the repository**:
 
-## Running unit tests
+    ```bash
+    git clone https://github.com/manthanank/news-app-angular.git
+    cd news-app-angular
+    ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Install the dependencies**:
 
-## Running end-to-end tests
+    ```bash
+    npm install
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Set up the environment**:
 
-## Further help
+    - Create a file named `environment.ts` in the `src/environments` directory.
+    - Add your NewsAPI key to the environment file:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ```typescript
+    // src/environments/environment.ts
+    export const environment = {
+      production: false,
+      newsApiKey: 'YOUR_NEWSAPI_KEY'
+    };
+    ```
+
+4. **Start the development server**:
+
+    ```bash
+    ng serve
+    ```
+
+5. **Open the application**:
+
+    Open your browser and navigate to `http://localhost:4200`.
+
+## Using Tailwind CSS
+
+To include Tailwind CSS in your Angular project, follow these steps:
+
+1. **Install Tailwind CSS**:
+
+    ```bash
+    npm install tailwindcss postcss autoprefixer
+    npx tailwindcss init
+    ```
+
+2. **Configure Tailwind**:
+
+    Update `tailwind.config.js`:
+
+    ```js
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+      content: [
+        "./src/**/*.{html,ts}",
+      ],
+      theme: {
+        extend: {},
+      },
+      plugins: [],
+    }
+    ```
+
+3. **Update Angular styles**:
+
+    Add the following imports to `src/styles.css`:
+
+    ```css
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    ```
+
+    Ensure `src/styles.css` is included in the `styles` array in `angular.json`:
+
+    ```json
+    "styles": [
+      "src/styles.css"
+    ]
+    ```
+
+## Running Tests
+
+Run unit tests via Angular CLI:
+
+```bash
+ng test
+```
+
+## Deployment
+
+To build the project for production, run:
+
+```bash
+ng build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
